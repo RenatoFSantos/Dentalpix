@@ -106,11 +106,11 @@
 		</dependency>
 
 		<!-- Dependência de configuração do Spring necessária quando inserimos a Classe DentechApiProperty que configura as variáveis de ambiente (Desenvolvimento, Produção) -->
-		<dependency>
+<!-- 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
-		</dependency>
+		</dependency> -->
 	</dependencies>
 
 	<build>
