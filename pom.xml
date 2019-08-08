@@ -79,10 +79,10 @@
 		<!-- UTILIZADA APENAS PARA BAIXAR A CLASSE DA BIBLIOTECA QUE FOI VINCULADA AO PROJETO ATRAVÉS DO COMANDO: 
 		OPÇÃO PROPRIEDADE DO PROJETO -> JAVA COMPILE -> ANNOTATION PROCESSING -> FACTORY PATH (.M2/REPOSITORY/ORG/HIBERNATE/HIBERNATE-JPAMODELGEN/5.0.12.Final/)
 		-->
-		<dependency>
+<!-- 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-jpamodelgen</artifactId>
-		</dependency>
+		</dependency> -->
 		
 		<!-- Implementando a segurança básica na API -->		
 		<dependency>
