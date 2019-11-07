@@ -2,8 +2,8 @@ package com.midilabs.dentech.api.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.midilabs.dentech.api.model.vo.Perfil_Permissao;
+import com.midilabs.dentech.api.model.vo.PerfilPermissao;
 
-public interface PerfilPermissaoRepository extends JpaRepository<Perfil_Permissao, Long> {
+public interface PerfilPermissaoRepository extends JpaRepository<PerfilPermissao, Long> {
 
 }

@@ -76,7 +76,7 @@ public class Usuario extends EntityBase {
 
 	@ManyToOne
 	@JoinColumn(name = "clin_sq_id")
-	@JsonBackReference
+//	@JsonBackReference
 	public Clinica getClinica() {
 		return clinica;
 	}

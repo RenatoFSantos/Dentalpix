@@ -4,6 +4,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import com.midilabs.dentech.api.model.vo.Clinica;
+import com.midilabs.dentech.api.model.vo.Dentista;
 import com.midilabs.dentech.api.repository.filter.ClinicaFilter;
 import com.midilabs.dentech.api.resource.projection.ResumoClinica;
 

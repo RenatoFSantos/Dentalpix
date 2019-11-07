@@ -28,6 +28,5 @@ public class ClinicaFilter {
 	public void setAtiva(Boolean ativa) {
 		this.ativa = ativa;
 	}
-	
 
 }

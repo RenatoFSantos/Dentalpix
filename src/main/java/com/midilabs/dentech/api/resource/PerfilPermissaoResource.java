@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.midilabs.dentech.api.event.RecursoCriadoEvent;
-import com.midilabs.dentech.api.model.vo.Perfil_Permissao;
+import com.midilabs.dentech.api.model.vo.PerfilPermissao;
 import com.midilabs.dentech.api.repository.PerfilPermissaoRepository;
 import com.midilabs.dentech.api.service.PerfilPermissaoService;
 
@@ -39,20 +39,20 @@ public class PerfilPermissaoResource {
 	
 	
 	@GetMapping
-	public List<Perfil_Permissao> listar() {
+	public List<PerfilPermissao> listar() {
 		return perfilPermissaoRepository.findAll();
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Perfil_Permissao> buscarPermissaoPorId(@PathVariable Long id) {
-		Perfil_Permissao permissaoSalvo = perfilPermissaoService.buscarPerfilPermissaoPorId(id);
+	public ResponseEntity<PerfilPermissao> buscarPermissaoPorId(@PathVariable Long id) {
+		PerfilPermissao permissaoSalvo = perfilPermissaoService.buscarPerfilPermissaoPorId(id);
 		return permissaoSalvo == null ? ResponseEntity.notFound().build() : ResponseEntity.ok().body(permissaoSalvo);
 		
 	}
 		
 	@PostMapping
-	public ResponseEntity<Perfil_Permissao> criar(@Valid @RequestBody Perfil_Permissao perfilPermissao, HttpServletResponse response) {
-		Perfil_Permissao perfilPermissaoSalvo = perfilPermissaoRepository.save(perfilPermissao);
+	public ResponseEntity<PerfilPermissao> criar(@Valid @RequestBody PerfilPermissao perfilPermissao, HttpServletResponse response) {
+		PerfilPermissao perfilPermissaoSalvo = perfilPermissaoRepository.save(perfilPermissao);
 		publisher.publishEvent(new RecursoCriadoEvent(this, response, perfilPermissaoSalvo.getId()));
 		
 		return ResponseEntity.status(HttpStatus.CREATED).body(perfilPermissaoSalvo);
@@ -60,8 +60,8 @@ public class PerfilPermissaoResource {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Perfil_Permissao> atualizar(@PathVariable Long id, @Valid @RequestBody Perfil_Permissao perfilPermissao) {
-		Perfil_Permissao perfilPermissaoAtualizada = perfilPermissaoService.atualizar(id, perfilPermissao);
+	public ResponseEntity<PerfilPermissao> atualizar(@PathVariable Long id, @Valid @RequestBody PerfilPermissao perfilPermissao) {
+		PerfilPermissao perfilPermissaoAtualizada = perfilPermissaoService.atualizar(id, perfilPermissao);
 		return ResponseEntity.ok(perfilPermissaoAtualizada);
 	}
 	

@@ -23,7 +23,7 @@ public class Perfil extends EntityBase {
 
 	private String perf_nm_perfil;
 	private String perf_sg_perfil;
-	private Set<Perfil_Permissao> permissaos = new HashSet<Perfil_Permissao>();
+	private Set<PerfilPermissao> permissaos = new HashSet<PerfilPermissao>();
 
 	
 	// *********************************************
@@ -56,11 +56,11 @@ public class Perfil extends EntityBase {
 	}
 
 	@OneToMany(mappedBy="perfil", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	public Set<Perfil_Permissao> getPermissaos() {
+	public Set<PerfilPermissao> getPermissaos() {
 		return permissaos;
 	}
 
-	public void setPermissaos(Set<Perfil_Permissao> permissaos) {
+	public void setPermissaos(Set<PerfilPermissao> permissaos) {
 		this.permissaos = permissaos;
 	}
 }

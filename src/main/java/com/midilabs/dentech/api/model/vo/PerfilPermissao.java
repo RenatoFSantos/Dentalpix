@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "perfil_permissao")
-public class Perfil_Permissao extends EntityBase {
+public class PerfilPermissao extends EntityBase {
 
 	/**
 	 * 
