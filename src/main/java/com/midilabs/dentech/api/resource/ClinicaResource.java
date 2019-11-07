@@ -40,6 +40,7 @@ public class ClinicaResource {
 	private ClinicaService clinicaService;
 	
 	@GetMapping
+//	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_CLINICA')")
 	public Page<Clinica> pesquisar(ClinicaFilter clinicaFilter, Pageable pageable) {
 		return clinicaRepository.filtrar(clinicaFilter, pageable);
 		

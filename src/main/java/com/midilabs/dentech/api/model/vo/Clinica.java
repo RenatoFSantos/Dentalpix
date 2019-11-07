@@ -1,5 +1,6 @@
 package com.midilabs.dentech.api.model.vo;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,7 +29,6 @@ public class Clinica extends EntityBase {
 	private String		clin_ds_email;
 	private String		clin_in_documento;
 	private String		clin_cd_documento;
-	
 	private Boolean		clin_in_ativo;
 
 	// ***************************************************
@@ -66,7 +66,7 @@ public class Clinica extends EntityBase {
 	}
 
 	@NotNull
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ende_sq_id")
 	public Endereco getEndereco() {
 		return endereco;
@@ -110,5 +110,5 @@ public class Clinica extends EntityBase {
 	public void setClin_in_ativo(Boolean clin_in_ativo) {
 		this.clin_in_ativo = clin_in_ativo;
 	}
-
+	
 }

@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -39,36 +38,35 @@ public class PerfilResource {
 	private PerfilService perfilService;
 	
 	@GetMapping
-	@PreAuthorize("hasAuthority('T') and #oauth2.hasScope('read')")
 	public List<Perfil> listar() {
 		return perfilRepository.findAll();
+	}
+	
+	@GetMapping("{/id}")
+	public ResponseEntity<Perfil> buscarPerfilPorId(@PathVariable Long id) {
+		Perfil perfilSalvo = perfilService.buscarPerfilPorId(id);
+		return perfilSalvo == null ? ResponseEntity.notFound().build() : ResponseEntity.ok().body(perfilSalvo);
 	}
 	
 	@PostMapping
 	public ResponseEntity<Perfil> criar(@Valid @RequestBody Perfil perfil, HttpServletResponse response) {
 		Perfil perfilSalvo = perfilRepository.save(perfil);
-		
 		publisher.publishEvent(new RecursoCriadoEvent(this, response, perfilSalvo.getId()));
-		
 		return ResponseEntity.status(HttpStatus.CREATED).body(perfilSalvo);
 	}
-
-	@GetMapping("/{id}")
-	public ResponseEntity<Perfil> buscarPerfilPorId(@PathVariable Long id) {
-		Perfil objPerfil = perfilService.buscarPerfilPorId(id);
-		return objPerfil == null ? ResponseEntity.notFound().build() : ResponseEntity.ok().body(objPerfil);
-	}
-		
-	@DeleteMapping("/{id}")
-	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void remover(@PathVariable Long id) {
-		perfilRepository.deleteById(id);
+	
+	@PutMapping("{/id}")
+	public ResponseEntity<Perfil> atualizar(@PathVariable Long id, @Valid @RequestBody Perfil perfil) {
+		Perfil perfilSalvo = perfilService.atualizar(id, perfil);
+		return ResponseEntity.ok(perfilSalvo);
 	}
 	
-	@PutMapping("/{id}")
-	public ResponseEntity<Perfil> atualizar(@PathVariable Long id, @Valid @RequestBody Perfil perfil) {
-		Perfil objPerfil = perfilService.atualizar(id, perfil);
-		return ResponseEntity.ok(objPerfil);
+	@DeleteMapping("{/id}")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void remover(@PathVariable Long id) {
+		this.perfilRepository.deleteById(id);
 	}
+		
+	
 	
 }

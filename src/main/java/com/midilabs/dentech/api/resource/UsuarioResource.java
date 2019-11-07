@@ -1,4 +1,4 @@
-package com.midilabs.dentech.api.resource;
+   package com.midilabs.dentech.api.resource;
 
 import java.util.Arrays;
 import java.util.List;

@@ -2,6 +2,7 @@ package com.midilabs.dentech.api.model.vo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -10,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 
 @Entity
@@ -21,9 +24,9 @@ public class Usuario extends EntityBase {
 	private String usua_nm_usuario;
 	private String usua_ds_email;
 	private String usua_ds_senha;
+	private String email;
 	private Clinica clinica;
 	private Perfil perfil;
-	private String email;
 	
 	
 	// *********************************************
@@ -47,9 +50,19 @@ public class Usuario extends EntityBase {
 		this.usua_nm_usuario = usua_nm_usuario;
 	}
 	
+	@Column(name="usua_ds_email", insertable=false, updatable=false)
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
 	public String getUsua_ds_email() {
 		return usua_ds_email;
 	}
+
 	public void setUsua_ds_email(String usua_ds_email) {
 		this.usua_ds_email = usua_ds_email;
 	}
@@ -62,7 +75,8 @@ public class Usuario extends EntityBase {
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "clin_sq_id", nullable = false)
+	@JoinColumn(name = "clin_sq_id")
+	@JsonBackReference
 	public Clinica getClinica() {
 		return clinica;
 	}
@@ -71,24 +85,13 @@ public class Usuario extends EntityBase {
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "perf_sq_id", nullable = false)
+	@JoinColumn(name="perf_sq_id")
 	public Perfil getPerfil() {
 		return perfil;
 	}
+
 	public void setPerfil(Perfil perfil) {
 		this.perfil = perfil;
 	}
-
-	
-	@Column(name="usua_ds_email", insertable=false, updatable=false)
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
-	
 	
 }

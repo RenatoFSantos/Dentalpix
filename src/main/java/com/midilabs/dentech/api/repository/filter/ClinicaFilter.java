@@ -4,6 +4,7 @@ public class ClinicaFilter {
 	
 	private String nome;
 	private String documento;
+	private Boolean ativa;
 	
 	// *********************************************
 	// --- GETs, SETs
@@ -21,5 +22,12 @@ public class ClinicaFilter {
 	public void setDocumento(String documento) {
 		this.documento = documento;
 	}
+	public Boolean isAtiva() {
+		return ativa;
+	}
+	public void setAtiva(Boolean ativa) {
+		this.ativa = ativa;
+	}
+	
 
 }

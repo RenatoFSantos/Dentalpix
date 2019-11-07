@@ -10,7 +10,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 public abstract class Perfil_ {
 
 	public static volatile SingularAttribute<Perfil, String> perf_nm_perfil;
-	public static volatile SetAttribute<Perfil, Permissao> permissaos;
+	public static volatile SetAttribute<Perfil, Perfil_Permissao> permissaos;
 	public static volatile SingularAttribute<Perfil, Long> id;
 	public static volatile SingularAttribute<Perfil, String> perf_sg_perfil;
 

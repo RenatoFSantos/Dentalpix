@@ -41,6 +41,7 @@ public class UsuarioService {
 		return usuarioRepository.findById(id).orElseThrow(() -> new EmptyResultDataAccessException(1));
 	}
 
+	@SuppressWarnings("unused")
 	private Usuario buscarUsuarioPorEmail(String email) {
 		return usuarioRepository.findByEmail(email).orElseThrow(() -> new EmptyResultDataAccessException(1));
 	}

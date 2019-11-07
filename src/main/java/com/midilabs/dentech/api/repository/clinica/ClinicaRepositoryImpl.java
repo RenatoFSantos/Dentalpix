@@ -69,19 +69,33 @@ public class ClinicaRepositoryImpl implements ClinicaRepositoryQuery {
 		if (!StringUtils.isEmpty(clinicaFilter.getNome())) {
 			predicates.add(builder.like(
 					builder.lower(root.get(Clinica_.CLIN_NM_CLINICA)), "%" + clinicaFilter.getNome().toLowerCase() + "%"));
+		} else {
+			System.out.println("Nome nulo");
 		}
 
 		if (clinicaFilter.getDocumento() != null) {
 			predicates.add(builder.like(
 					builder.lower(root.get(Clinica_.CLIN_CD_DOCUMENTO)), "%" + clinicaFilter.getDocumento().toLowerCase() + "%"));
+		} else {
+			System.out.println("Documento nulo");
 		}
-
+		
+		if (clinicaFilter.isAtiva() != null) {
+   		   Boolean value = "true".equalsIgnoreCase(clinicaFilter.isAtiva().toString()) ? Boolean.TRUE :
+                 "false".equalsIgnoreCase(clinicaFilter.isAtiva().toString()) ? Boolean.FALSE : null;
+   		   System.out.println("Value = " + value);
+   		   predicates.add(builder.equal(
+					root.get(Clinica_.CLIN_IN_ATIVO), value));
+		} else {
+			System.out.println("Valor nulo");
+		}
+	
 		return predicates.toArray(new Predicate[predicates.size()]);
 	}
 	
 	private Long total(ClinicaFilter clinicaFilter) {
 		CriteriaBuilder builder = manager.getCriteriaBuilder();
-		CriteriaQuery<Long> criteria = builder.createQuery(Long.class);
+		CriteriaQuery<Long> criteria = builder.createQuery(Long.class);	
 		Root<Clinica> root = criteria.from(Clinica.class);
 		
 		Predicate[] predicates = criarRestricoes(clinicaFilter, builder, root);

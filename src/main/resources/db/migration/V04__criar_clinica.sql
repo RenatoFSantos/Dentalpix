@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS clinica (
   INDEX fk_Clinica_Endereco1_idx (ende_sq_id ASC),
   CONSTRAINT fk_Clinica_Endereco1
     FOREIGN KEY (ende_sq_id)
-    REFERENCES Dentech.Endereco (ende_sq_id)
+    REFERENCES Dentalpix.Endereco (ende_sq_id)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

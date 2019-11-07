@@ -1,6 +1,5 @@
 package com.midilabs.dentech.api.model.vo;
 
-import com.midilabs.dentech.api.model.domain.TipoEndereco;
 import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
@@ -11,7 +10,6 @@ public abstract class Endereco_ {
 
 	public static volatile SingularAttribute<Endereco, String> ende_ds_telefone;
 	public static volatile SingularAttribute<Endereco, String> ende_nm_cidade;
-	public static volatile SingularAttribute<Endereco, TipoEndereco> ende_cd_tipo;
 	public static volatile SingularAttribute<Endereco, String> ende_nm_bairro;
 	public static volatile SingularAttribute<Endereco, String> ende_sg_uf;
 	public static volatile SingularAttribute<Endereco, Long> id;
@@ -22,7 +20,6 @@ public abstract class Endereco_ {
 
 	public static final String ENDE_DS_TELEFONE = "ende_ds_telefone";
 	public static final String ENDE_NM_CIDADE = "ende_nm_cidade";
-	public static final String ENDE_CD_TIPO = "ende_cd_tipo";
 	public static final String ENDE_NM_BAIRRO = "ende_nm_bairro";
 	public static final String ENDE_SG_UF = "ende_sg_uf";
 	public static final String ID = "id";

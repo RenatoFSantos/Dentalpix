@@ -2,11 +2,6 @@ package com.midilabs.dentech.api.model.vo;
 
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
 import com.midilabs.dentech.api.repository.SimpleEntity;
 
 public class EntityBase implements SimpleEntity, Serializable {

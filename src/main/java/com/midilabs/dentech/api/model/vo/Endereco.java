@@ -28,7 +28,6 @@ public class Endereco extends EntityBase {
 	private String ende_sg_uf;
 	private String ende_cd_cep;
 	private String ende_ds_telefone;
-	private TipoEndereco ende_cd_tipo;
 
 	// *********************************************
 	// --- GETs, SETs e HashCode
@@ -107,16 +106,4 @@ public class Endereco extends EntityBase {
 	public void setEnde_ds_telefone(String ende_ds_telefone) {
 		this.ende_ds_telefone = ende_ds_telefone;
 	}
-
-	@NotNull
-	@Enumerated(EnumType.STRING)
-	@Column(name = "ende_cd_tipo")
-	public TipoEndereco getEnde_cd_tipo() {
-		return ende_cd_tipo;
-	}
-
-	public void setEnde_cd_tipo(TipoEndereco ende_cd_tipo) {
-		this.ende_cd_tipo = ende_cd_tipo;
-	}
-
 }
