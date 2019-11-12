@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.midilabs.dentech.api.event.RecursoCriadoEvent;
+import com.midilabs.dentech.api.model.to.DentistasPorClinicaDTO;
 import com.midilabs.dentech.api.model.vo.ClinicaDentista;
 import com.midilabs.dentech.api.repository.ClinicaDentistaRepository;
 import com.midilabs.dentech.api.service.ClinicaDentistaService;
@@ -47,6 +49,13 @@ public class ClinicaDentistaResource {
 		ClinicaDentista clinicaDentistaSalvo = clinicaDentistaService.buscarClinicaDentistaPorId(id);
 		return clinicaDentistaSalvo == null ? ResponseEntity.notFound().build() : ResponseEntity.ok().body(clinicaDentistaSalvo);
 	}
+	
+	@GetMapping("/{id}/dentistas")
+	public DentistasPorClinicaDTO listarDentistasPorClinica(@PathVariable Long id, Pageable pageable) {
+		// TODO: Rotina para listar Dentistas por clinica - Resource
+		return clinicaDentistaService.listarDentistasPorClinica(id);
+	}
+	
 	
 	@PostMapping
 	public ResponseEntity<ClinicaDentista> criar(@Valid @RequestBody ClinicaDentista clinicaDentista, HttpServletResponse response) {

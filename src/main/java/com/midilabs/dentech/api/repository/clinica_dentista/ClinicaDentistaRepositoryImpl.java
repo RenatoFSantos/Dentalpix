@@ -11,13 +11,17 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 
+import com.midilabs.dentech.api.model.to.DentistasPorClinicaDTO;
+import com.midilabs.dentech.api.model.vo.Clinica;
 import com.midilabs.dentech.api.model.vo.ClinicaDentista;
 import com.midilabs.dentech.api.model.vo.ClinicaDentista_;
 import com.midilabs.dentech.api.model.vo.Clinica_;
+import com.midilabs.dentech.api.model.vo.Dentista;
 
 public class ClinicaDentistaRepositoryImpl implements ClinicaDentistaRepositoryQuery {
 	
@@ -25,7 +29,7 @@ public class ClinicaDentistaRepositoryImpl implements ClinicaDentistaRepositoryQ
 	private EntityManager manager; 
 
 	@Override
-	public Page<ClinicaDentista> listarDentistasPorClinica(Long id, Pageable pageable) {
+	public List<ClinicaDentista> listarDentistasPorClinica(Long id) {
 		CriteriaBuilder builder = manager.getCriteriaBuilder();
 		CriteriaQuery<ClinicaDentista> criteria = builder.createQuery(ClinicaDentista.class);
 		Root<ClinicaDentista> root = criteria.from(ClinicaDentista.class);
@@ -37,10 +41,10 @@ public class ClinicaDentistaRepositoryImpl implements ClinicaDentistaRepositoryQ
 		
 		
 		TypedQuery<ClinicaDentista> query = manager.createQuery(criteria);
-		adicionarRestricoesDePaginacao(query, pageable);
-		
-		return new PageImpl<>(query.getResultList(), pageable, total(id));
-
+		return query.getResultList();
+//		adicionarRestricoesDePaginacao(query, pageable);
+//		
+//		return new PageImpl<>(query.getResultList(), pageable, total(id));
 	}
 
 	@Override
