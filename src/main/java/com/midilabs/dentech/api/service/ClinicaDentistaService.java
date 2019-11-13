@@ -42,8 +42,8 @@ public class ClinicaDentistaService {
 			}
 			dentistas.add(obj.getDentista());
 		});
-		
 		return new DentistasPorClinicaDTO(clinica, dentistas);
+		
 
 	}
 	

@@ -19,5 +19,5 @@ CREATE TABLE IF NOT EXISTS clinica_dentista (
 INSERT INTO clinica_dentista (clin_sq_id, dett_sq_id) VALUES (1, 1);
 INSERT INTO clinica_dentista (clin_sq_id, dett_sq_id) VALUES (1, 2);
 INSERT INTO clinica_dentista (clin_sq_id, dett_sq_id) VALUES (1, 3);
-INSERT INTO clinica_dentista (clin_sq_id, dett_sq_id) VALUES (1, 4);
-INSERT INTO clinica_dentista (clin_sq_id, dett_sq_id) VALUES (1, 5);
+INSERT INTO clinica_dentista (clin_sq_id, dett_sq_id) VALUES (2, 4);
+INSERT INTO clinica_dentista (clin_sq_id, dett_sq_id) VALUES (2, 5);
