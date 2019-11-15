@@ -7,11 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
-import com.midilabs.dentech.api.model.vo.Clinica;
 import com.midilabs.dentech.api.model.vo.Usuario;
-import com.midilabs.dentech.api.repository.ClinicaRepository;
 import com.midilabs.dentech.api.repository.UsuarioRepository;
-import com.midilabs.dentech.api.service.exception.ClinicaInexistenteOuInativaException;
 
 @Service
 public class UsuarioService {
@@ -19,9 +16,6 @@ public class UsuarioService {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	
-	@Autowired
-	private ClinicaRepository clinicaRepository;
-
 	public Usuario atualizar(Long id, @Valid Usuario usuario) {
 		Usuario objUsuario = buscarUsuarioPorId(id);
 		// --- Copia as propriedades alteradas para as propriedades do objeto pesquisado excluindo o código (id) que já está definido
@@ -47,10 +41,10 @@ public class UsuarioService {
 	}
 	
 	public Usuario salvar(@Valid Usuario usuario) {
-		Clinica objClinica = clinicaRepository.findById(usuario.getClinica().getId()).orElseThrow(() -> new EmptyResultDataAccessException(1));
-		if (objClinica == null || objClinica.isInativo()) {
-			throw new ClinicaInexistenteOuInativaException();
-		}
+//		Clinica objClinica = clinicaRepository.findById(usuario.getClinica().getId()).orElseThrow(() -> new EmptyResultDataAccessException(1));
+//		if (objClinica == null || objClinica.isInativo()) {
+//			throw new ClinicaInexistenteOuInativaException();
+//		}
 		return usuarioRepository.save(usuario);
 	}
 

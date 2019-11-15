@@ -25,7 +25,6 @@ public class Usuario extends EntityBase {
 	private String usua_ds_email;
 	private String usua_ds_senha;
 	private String email;
-	private Clinica clinica;
 	private Perfil perfil;
 	
 	
@@ -72,16 +71,6 @@ public class Usuario extends EntityBase {
 	}
 	public void setUsua_ds_senha(String usua_ds_senha) {
 		this.usua_ds_senha = usua_ds_senha;
-	}
-
-	@ManyToOne
-	@JoinColumn(name = "clin_sq_id")
-//	@JsonBackReference
-	public Clinica getClinica() {
-		return clinica;
-	}
-	public void setClinica(Clinica clinica) {
-		this.clinica = clinica;
 	}
 
 	@ManyToOne
