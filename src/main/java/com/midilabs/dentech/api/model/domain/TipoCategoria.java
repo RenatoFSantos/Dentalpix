@@ -1,12 +1,12 @@
 package com.midilabs.dentech.api.model.domain;
 
-public enum TipoLancamento {
-	C("Crédito"),
-	D("Débito");
+public enum TipoCategoria {
+	R("Receita"),
+	D("Despesa");
 	
 	private String Tipo;
 	
-	private TipoLancamento(String tipo) {
+	private TipoCategoria(String tipo) {
 		this.Tipo = tipo;
 	}
 

@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 @Entity
 @Table(name="dentista_paciente")
@@ -35,6 +37,7 @@ public class DentistaPaciente extends EntityBase {
 	
 	@ManyToOne
 	@JoinColumn(name="dett_sq_id", nullable = false)
+	@JsonBackReference
 	public Dentista getDentista() {
 		return dentista;
 	}

@@ -57,7 +57,7 @@ public class Paciente extends EntityBase {
 	}
 	
 	@OneToOne
-	@JoinColumn(name="ende_sq_id", nullable=false)
+	@JoinColumn(name="ende_sq_id")
 	public Endereco getEndereco() {
 		return endereco;
 	}
