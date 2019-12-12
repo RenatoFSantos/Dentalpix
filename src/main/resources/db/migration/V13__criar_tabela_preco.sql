@@ -10,3 +10,5 @@ INSERT INTO tabela_preco (tapr_nm_tabela, tapr_ds_tabela, tapr_pr_reajuste) VALU
 INSERT INTO tabela_preco (tapr_nm_tabela, tapr_ds_tabela, tapr_pr_reajuste) VALUES ('Tabela Preço 3', 'Tabela reajuste 20%', '20.00');
 INSERT INTO tabela_preco (tapr_nm_tabela, tapr_ds_tabela, tapr_pr_reajuste) VALUES ('Tabela Preço 4', 'Tabela reajuste 25%', '25.00');
 INSERT INTO tabela_preco (tapr_nm_tabela, tapr_ds_tabela, tapr_pr_reajuste) VALUES ('Tabela Preço 5', 'Tabela reajuste 50%', '50.00');
+
+

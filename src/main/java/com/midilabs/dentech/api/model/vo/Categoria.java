@@ -2,6 +2,8 @@ package com.midilabs.dentech.api.model.vo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -38,6 +40,7 @@ public class Categoria extends EntityBase {
 		this.cate_nm_categoria = cate_nm_categoria;
 	}
 
+	@Enumerated(EnumType.STRING)
 	public TipoCategoria getCate_in_tipo() {
 		return cate_in_tipo;
 	}

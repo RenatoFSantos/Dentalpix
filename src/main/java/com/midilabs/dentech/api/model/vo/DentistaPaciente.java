@@ -37,7 +37,7 @@ public class DentistaPaciente extends EntityBase {
 	
 	@ManyToOne
 	@JoinColumn(name="dett_sq_id", nullable = false)
-	@JsonBackReference
+//	@JsonBackReference
 	public Dentista getDentista() {
 		return dentista;
 	}

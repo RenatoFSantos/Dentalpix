@@ -27,7 +27,7 @@ public class Dentista extends EntityBase {
 	private Endereco endereco;
 	private String dett_ds_celular;
 	private String dett_ds_email;
-	private List<DentistaPaciente> pacientes = new ArrayList<DentistaPaciente>();
+	//private List<DentistaPaciente> pacientes = new ArrayList<DentistaPaciente>();
 	
 	// *********************************************
 	// --- GETs, SETs e HashCode
@@ -80,6 +80,7 @@ public class Dentista extends EntityBase {
 		this.dett_ds_email = dett_ds_email;
 	}
 
+	/*
 	@OneToMany(mappedBy="dentista")
 	public List<DentistaPaciente> getPacientes() {
 		return pacientes;
@@ -88,6 +89,7 @@ public class Dentista extends EntityBase {
 	public void setPacientes(List<DentistaPaciente> pacientes) {
 		this.pacientes = pacientes;
 	}
+	*/
 	
 	
 	
